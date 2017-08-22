@@ -28,12 +28,17 @@
 ## Typescript
 
 * Um superset do ES2015 (ES6), com recursos extras como tipagem estática e decorators.
+* É necessário ter o NodeJs instalado.
 * No Windows e no MAC a compilação ocorre imediatamente após a criação do arquivo .ts.
 * TypeScript possui um transpiler, que é um compilador de código fonte para código fonte. Com ele, podemos programar usando o que há de mais moderno do ES6 e do TypeScript. 
+    * O transpiler traduz para ES5 para compatibilidade com todos os browsers.
+* Ao compilar o projeto com o _npm start_ o arquivo app.meu-component.js e js.map serão criados, após a transpilação.
+    * Ele ficará escutando mudanças nos arquivos e gerar uma nova compilação em tempo real.
 
 ## Components and Decorators
 
-* Para transformar uma classe ES6 em Component, é preciso importar um Decorator antes da definição da Class.
+* Acrescentado pelo TypeScript ao ES6.
+* Para transformar uma classe ES6 em Component, é preciso importar um Decorator antes da definição da Class e definir os objetos mínimos do Component: o _selector_ e o _templateUrl_.
 * Para o angular, o decorator é:
 
 ```javascript
@@ -48,4 +53,33 @@
         selector: 'nome-do-componente', // Será a maneira como acessar o componente na view. Como uma tag html.
         templateUrl: './app/app.component.html', // Template do Componente. Por convenção, para pegar a pasta raiz usa-se ./
     })
+```
+
+## Arquivos .map
+
+* Fazem a correlação entre os arquivo .ts e .js (transpilado) para caso haja um erro no transpilado, você saber qual a linha correspondente a este erro no .ts, resolvendo problemas de depuração.
+
+## Modules
+
+* Todo module de ES6, se quiser importá-lo em algum lugar, é preciso exportar, ou seja, acrescetar um *export* antes da definição da class.
+* Para um module do Angular, é preciso importar o _NgModule_ e declarar o _@NgModule_:
+
+```javascript
+import { NgModule } from '@angular/core';
+// Indica que a aplicacao Angular vai rodar no Navegador
+import { BrowserModule } from '@angular/platform-browser'; // obrigatorio
+import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar export antes da class MyComponent
+
+// Transforma sua classe num module do Angular
+@NgModule({
+    // Passa um array com todos os modules que eu quero importar
+    imports: [ BrowseModule],
+    // Declarar quais ou outros componentes ou recursos que ele tem
+    declarations: [ MyComponent ],
+
+    // Na hora de bootar a aplicaçao, quem vai bootar primeiro?
+    // Se eu tiver mais de um componente, qual componente vou querer iniciar?
+    bootstrap: [ MyComponent]
+})
+
 ```

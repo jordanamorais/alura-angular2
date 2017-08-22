@@ -1,3 +1,4 @@
+import { selector } from 'rxjs/operator/publish';
 // Decorator - Processado pelo TypeScript
 // ---
 import { Component } from '@angular/core';
@@ -10,9 +11,8 @@ import { Component } from '@angular/core';
 // Classes ES6
 // ---
 // Para a class ser um Component, é preciso importar o decorator
-class AppComponent {
-
-
+// é preciso o export pra dizer que é um modulo exportavel no ES6
+export class AppComponent {
 
 
 }

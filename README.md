@@ -19,6 +19,11 @@ brew install node
 
 * server/ -- Contém todo o código do servidor.
 * client/ -- Onde ficarão todos os fontes do projeto.
+* Instalar dependencias da pasta client/, lendo o package.json e baixando somente as que estão faltando:
+
+```javascript
+npm install
+```
 
 ### Server start
 
@@ -29,3 +34,19 @@ npm start
 ```
 
 * Acesso: http://localhost:3000
+
+### Compilar/Transpilar
+
+* Dentro da pasta client/, para compilar em tempo real, rodar também um:
+
+```javascript
+npm start
+```
+
+### Terminal
+
+* Rename folder reminder:
+
+```javascript
+mv folder new_folder_name
+```
