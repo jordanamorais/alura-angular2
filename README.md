@@ -42,6 +42,9 @@ npm start
 ```javascript
 npm start
 ```
+    * Este comando executa o script start definido no arquivo alurapic/client/package.json.
+    * A propriedade "scripts" define todos os scripts que podemos chamar.
+    * o npm start é um atalho para _npm run tsc:w_ que compila o TypeScript e segue dando watch no projeto, escutando mudanças nos arquivos .tsc e gerando/transpilando os .js.
 
 ### Terminal
 

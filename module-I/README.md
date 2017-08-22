@@ -92,3 +92,7 @@ import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar e
 * O _System.js_ lê o *main.js* para saber quais e como os modulos devem ser carregados pelo navegador.
     * Evitar importar n arquivos.js
     * O proprio loader resolve as dependencias e baixa o script pra você
+
+## Angular Cli
+
+* Ferramenta de linha de comando que ajuda a montar a infra da sua aplicação e acelerar a criação de componentes.

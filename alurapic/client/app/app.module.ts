@@ -10,14 +10,14 @@ import { AppComponent } from './app.component'; // dará erro se nao utilizar ex
 @NgModule({
     // Passa um array com todos os modules que eu quero importar
     // Como a aplicação vai rodar no Browser, preciso importar o BrowserModule
-    imports: [ BrowserModule],
+    imports: [ BrowserModule ],
     
     // Declarar quais ou outros componentes ou recursos que ele tem
     declarations: [ AppComponent ],
 
     // Na hora de bootar a aplicaçao, quem vai bootar primeiro?
     // Se eu tiver mais de um componente, qual componente vou querer iniciar?
-    bootstrap: [ AppComponent]
+    bootstrap: [ AppComponent ]
 })
 
 export class AppModule {
