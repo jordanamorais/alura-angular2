@@ -20,6 +20,6 @@ import { AppComponent } from './app.component'; // dará erro se nao utilizar ex
     bootstrap: [ AppComponent]
 })
 
-class AppModule {
+export class AppModule {
 
 }

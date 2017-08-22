@@ -83,3 +83,12 @@ import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar e
 })
 
 ```
+* É necessário criar pelo menos um módulo para que nossa aplicação funcione, geralmente chamado de módulo raíz (root) ou módulo principal (main) da aplicação.
+
+## Loaders
+
+* System.js, foi o loader (carregador) escolhido pela equipe do Angular 2.
+* A vantagem do loader é que não precisamos importar cada módulo em nossa página, simplesmente indicamos qual é o primeiro módulo a ser carregado que todas as suas dependências serão carregadas.
+* O _System.js_ lê o *main.js* para saber quais e como os modulos devem ser carregados pelo navegador.
+    * Evitar importar n arquivos.js
+    * O proprio loader resolve as dependencias e baixa o script pra você
