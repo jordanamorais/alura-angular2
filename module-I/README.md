@@ -50,6 +50,7 @@
 
 ```javascript
     @Component({
+        moduleId: module.id, // Faz com que o componente procure o template relativo à sua pasta.
         selector: 'nome-do-componente', // Será a maneira como acessar o componente na view. Como uma tag html.
         templateUrl: './app/app.component.html', // Template do Componente. Por convenção, para pegar a pasta raiz usa-se ./
     })
@@ -96,3 +97,40 @@ import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar e
 ## Angular Cli
 
 * Ferramenta de linha de comando que ajuda a montar a infra da sua aplicação e acelerar a criação de componentes.
+
+## Inbound Properties and One Way Data Binding
+
+* Faz o component passar a aceitar valores. Ex.:
+
+```javascript
+export class PhotoComponent {
+
+    // Inbound Properties do TypeScript. Se fosse ES6 criaria o constructor.
+    // Meu component passará a aceitar valores
+    @Input() url; 
+    @Input() title;
+}
+```
+* Entre []: Associação Unidirecional (somente leitura). Ex.:
+
+Angular2
+```html
+<img class="img-responsive center-block" [src]="url" [alt]="title">
+```
+
+Usando Angular Expression ({{}}) (do Angular 1)
+```html
+<img class="img-responsive center-block" src="{{url}}" alt="{{title}}">
+```
+
+## Syntatic Sugar
+
+* TypeScript nos traz alguns açúcares sintáticos para escrevermos menos. Ex:
+
+```javascript
+class Pessoa {
+    // Nao precisar escrever constructor() { this.nome; ...}
+    nome;
+    endereco;
+}
+```

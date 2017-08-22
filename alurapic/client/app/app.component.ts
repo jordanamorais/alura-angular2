@@ -4,8 +4,9 @@ import { selector } from 'rxjs/operator/publish';
 import { Component } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'app',
-    templateUrl:  './app/app.component.html'
+    templateUrl:  './app.component.html'
 })
 
 // Classes ES6
