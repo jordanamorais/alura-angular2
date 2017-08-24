@@ -3,7 +3,8 @@
 </div>
 <div class="container">
     <!-- A tag image virou component -->
-    <foto url="img/leao.jpg" title="Leão"></foto>
-    <foto url="img/leao-branco.jpg" title="Leão Branco"></foto>
+    <!-- Angular Expression / One Way data binding -->
+    <!-- fotos: propriedade que está no app.component -->
+    <foto *ngFor="let foto of fotos" url="{{foto.url}}" title="{{foto.title}}"></foto>
 </div>
 
