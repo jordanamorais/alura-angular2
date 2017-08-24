@@ -8,6 +8,9 @@ import { AppComponent } from './app.component'; // dará erro se nao utilizar ex
 import { FotoModule } from './foto/foto.module';
 import { HttpModule } from '@angular/http';
 
+// Carregar o o module .map do rxjs para ficar disponível pra uso.
+import 'rxjs/add/operator/map';
+
 // Transforma sua classe num module do Angular
 @NgModule({
     // Passa um array com todos os modules que eu quero importar
