@@ -14,6 +14,11 @@
 * O _package.json_ possui todas as dependências que o projeto precisa para funcionar. Quem verifica e atualiza as dependências é o instalador de pacotes do NodeJS: o NPM, jogando os arquivos baixados no dir node_modules/.
 * Boa prática: criar a pasta *app/* e tudo do angular ficar dentro dela.
 * Angular gira em torno de componentes.
+* Provider = Provedor de artefatos.
+
+## ES6 Tips
+
+* Arrow Functions resolve o problema de contexto de _this_.
 
 ## About APIs
 
@@ -27,6 +32,7 @@
 
 ## Typescript
 
+* Linguagem estaticamente tipada.
 * Um superset do ES2015 (ES6), com recursos extras como tipagem estática e decorators.
 * É necessário ter o NodeJs instalado.
 * No Windows e no MAC a compilação ocorre imediatamente após a criação do arquivo .ts.
@@ -83,6 +89,8 @@ import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar e
     bootstrap: [ MyComponent]
 })
 
+* Para cada module importado, acrescentar o nome do module no _imports_ do decorator @NgModule.
+
 ```
 * É necessário criar pelo menos um módulo para que nossa aplicação funcione, geralmente chamado de módulo raíz (root) ou módulo principal (main) da aplicação.
 
@@ -133,4 +141,85 @@ class Pessoa {
     nome;
     endereco;
 }
+```
+
+## Server Requests / Ajax
+
+* No JS usa-se Ajax para requisições.
+* O Angular possui um serviço já responsável por realizar esta tarefa.
+* Angular 1 usa muito *Promises*. Angular 2 preferiu utilizar *RxJS* para trabalhar com Observable stream.
+
+```javascript
+// Sabe fazer requisições Ajax para consumir dados de uma API
+// O Http é uma classe, logo precisa-se de uma instância para tal
+import { Http } from '@angular/http';
+```
+    * É preciso importar o Inject do angular core.
+    * Usa o _@Inject(Http) http_ como parametro no constructor para que o Angular fique responsável pela requisição.
+    * Importa o module Http no app.module.ts para que não haja erro do provider.
+    
+    ```javascript
+    import { HttpModule } from '@angular/http';
+    ```
+    Ele disponibilizará um provider já configurado para disponibilizar a instância já configurada de HTTP.
+
+### Usando com Typescript
+* Remove o Inject do app.component
+* No parâmetro do constructor, em vez de passar _@Inject(Http) http_ passa-se _http: Http_. Ex.:
+
+```typescript
+export class AppComponent {
+
+    constructor(http: Http) {
+        
+        // o Http request retorna um "stream"
+        let stream = http.get('v1/fotos'); // link para o consumo dos dados.
+
+        // Para ter acesso aos dados retornados do stream, com uma funcao que irá receber a resposta dada pelo backend
+        //stream.subscribe(function(res){
+        //});
+
+        // Utilizando arrow function:
+        stream.subscribe(res => {
+
+            this.fotos = res.json(); // retorna os dados da resposta num json.
+        }, erro => console.log(erro))); // Se nao der sucesso, retorne um erro.
+    }
+}
+```
+
+### Enxugando o código
+
+```typescript
+export class AppComponent {
+
+    constructor(http: Http) {
+        
+        // Encadeando
+        // Para utilizar o .map, precisa importar o module do map do rxJS no app.module.
+        // import 'rxjs/add/operator/map';
+        http
+        .get('v1/fotos')
+        .map(res => res.json())
+        .subscribe(res => {
+            this.fotos = res;
+        }, erro => console.log(erro)));
+    }
+}
+```
+
+* Exemplos de definição de tipos com TypeScript:
+
+```typescript
+nome: string;
+foto: Array<Object> = []; // array inicializado vazio.
+foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
+```
+
+## Directive ngFor
+
+* Diretiva para iterar na view. Ex.:
+
+```html
+<foto *ngFor="let foto of fotos" url="{{foto.url}}" title="{{foto.title}}"></foto>
 ```
