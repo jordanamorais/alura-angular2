@@ -15,6 +15,7 @@
 * Boa prática: criar a pasta *app/* e tudo do angular ficar dentro dela.
 * Angular gira em torno de componentes.
 * Provider = Provedor de artefatos.
+* Cada view ou página pode ser considerada como component file no Angular.
 
 ## ES6 Tips
 
@@ -227,3 +228,23 @@ foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
 ## <ng-content>
 
 * Indica onde na template do component o conteúdo passado dentro do component deverá ser exibido.
+
+## SPA
+
+* Geralmente já carrega todos os scripts e CSS's de que precisa no seu primeiro carregamento.
+* Chavear páginas através de rotas, no angular, sem recarregar as páginas.
+* Criar o arquivo de config de rotas do Angular:
+
+```typescript
+    // Onde importará o module de Routes e setará os componentes para as páginas
+    app/app.routes.ts
+``` 
+* Importar o module de routing no _app.module.ts_.
+* Inserir no index.html:
+
+```html
+<base href="/">
+```
+
+* Inserir diretiva _<router-outlet></router-outlet>_ no app.component para indicar que todos os conteúdos dos componentes importados serão exibidos ali.
+* Utilizar _[routerLink]="['/cadastro']"_ no lugar do _href_ de um link para indicar a url de uma rota, para que não precise recarregar a aplicação por inteiro, fazendo a troca de maneira correta da rota.
