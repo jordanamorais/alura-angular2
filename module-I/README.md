@@ -223,3 +223,7 @@ foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
 ```html
 <foto *ngFor="let foto of fotos" url="{{foto.url}}" title="{{foto.title}}"></foto>
 ```
+
+## <ng-content>
+
+* Indica onde na template do component o conteúdo passado dentro do component deverá ser exibido.

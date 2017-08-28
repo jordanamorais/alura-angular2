@@ -11,5 +11,5 @@ export class FotoComponent {
     // Inbound Properties do TypeScript. Se fosse ES6 criaria o constructor.
     // Meu component passará a aceitar valores
     @Input() url; 
-    @Input() title;
+    @Input() titulo;
 }

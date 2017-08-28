@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser'; // obrigatorio
 import { AppComponent } from './app.component'; // dará erro se nao utilizar export antes da class AppComponent
 import { FotoModule } from './foto/foto.module';
 import { HttpModule } from '@angular/http';
+import { PainelModule } from './painel/painel.module';
 
 // Carregar o o module .map do rxjs para ficar disponível pra uso.
 import 'rxjs/add/operator/map';
@@ -15,7 +16,7 @@ import 'rxjs/add/operator/map';
 @NgModule({
     // Passa um array com todos os modules que eu quero importar
     // Como a aplicação vai rodar no Browser, preciso importar o BrowserModule
-    imports: [ BrowserModule, FotoModule, HttpModule ], // Porque AppModule depende de FotoModule (por isso importou ele aqui)
+    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule ], // Porque AppModule depende de FotoModule (por isso importou ele aqui)
     
     // Declarar quais ou outros componentes ou recursos que ele tem
     declarations: [ AppComponent ],

@@ -5,6 +5,12 @@
     <!-- A tag image virou component -->
     <!-- Angular Expression / One Way data binding -->
     <!-- fotos: propriedade que está no app.component -->
-    <foto *ngFor="let foto of fotos" url="{{foto.url}}" title="{{foto.title}}"></foto>
+
+    <div class="row">
+        <painel *ngFor="let foto of fotos" titulo="{{foto.titulo}}" class="col-md-2">
+            <foto url="{{foto.url}}" title="{{foto.titulo}}"></foto>
+        </painel> 
+    </div>
+
 </div>
 
