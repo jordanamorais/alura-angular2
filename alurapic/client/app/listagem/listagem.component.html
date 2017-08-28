@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-12">
             <form action="">
-                <div class="input-group">
+                <div class="form-group input-group">
                     <span class="input-group-btn">
 
                         <!-- Para nao precisar recarregar a aplicacao e apenas redirecionar pra rota, utiliza o routerLink -->
@@ -15,6 +15,9 @@
                             Nova foto
                         </a>
                     </span>
+
+                    <!-- Criando variavel local do Angular para aplicar o filtro "filterByTitle "-->
+                    <input #textoProcurado type="text" class="form-control" placeholder="filtrar pelo titulo da foto">
                 </div>
             </form>
         </div>
@@ -25,7 +28,7 @@
     <!-- fotos: propriedade que está no app.component -->
 
     <div class="row">
-        <painel *ngFor="let foto of fotos" titulo="{{foto.titulo}}" class="col-md-2">
+        <painel *ngFor="let foto of fotos | filterByTitle: textoProcurado.value" titulo="{{foto.titulo | uppercase}}" class="col-md-2">
             <foto url="{{foto.url}}" title="{{foto.titulo}}"></foto>
         </painel>
     </div>
