@@ -247,4 +247,7 @@ foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
 ```
 
 * Inserir diretiva _<router-outlet></router-outlet>_ no app.component para indicar que todos os conteúdos dos componentes importados serão exibidos ali.
+    * Indica o local em que os componentes carregados pelo sistema de rotas do Angular devem ser inseridos dentro de um template.
+    * Normalmente é inserido no o primeiro componente a ser carregado em nossa aplicação.
+
 * Utilizar _[routerLink]="['/cadastro']"_ no lugar do _href_ de um link para indicar a url de uma rota, para que não precise recarregar a aplicação por inteiro, fazendo a troca de maneira correta da rota.
