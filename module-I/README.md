@@ -39,8 +39,15 @@
 * No Windows e no MAC a compilação ocorre imediatamente após a criação do arquivo .ts.
 * TypeScript possui um transpiler, que é um compilador de código fonte para código fonte. Com ele, podemos programar usando o que há de mais moderno do ES6 e do TypeScript. 
     * O transpiler traduz para ES5 para compatibilidade com todos os browsers.
+
 * Ao compilar o projeto com o _npm start_ o arquivo app.meu-component.js e js.map serão criados, após a transpilação.
     * Ele ficará escutando mudanças nos arquivos e gerar uma nova compilação em tempo real.
+
+* Suporta a noção de Interface (Obrigações que uma classe que implementa essa interface tem que cumprir).
+    * Blinda o programador de erros.
+    * É exclusivo no Typescript, portanto, não existe no ES6.
+    * Qualquer erro irá ser exibido no terminal.
+
 
 ## Components and Decorators
 
@@ -251,3 +258,10 @@ foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
     * Normalmente é inserido no o primeiro componente a ser carregado em nossa aplicação.
 
 * Utilizar _[routerLink]="['/cadastro']"_ no lugar do _href_ de um link para indicar a url de uma rota, para que não precise recarregar a aplicação por inteiro, fazendo a troca de maneira correta da rota.
+
+
+## Pipes
+
+* Funcionam como filtros no Angular. Ex.: {{foto.titulo *| uppercase* }} transforma o valor para caixa-alta.
+* É possível criar filtros customizados.
+    * Por convenção, criar o arquivo no padrão: _myfile.pipes.ts_
