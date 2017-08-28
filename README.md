@@ -1,5 +1,5 @@
 
-# My useful notes about this course
+# My useful notes about Angular 2.
 
 * [Part 1](https://github.com/jordanamorais/alura-angular2/tree/master/module-I)
 * Part 2

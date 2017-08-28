@@ -12,3 +12,5 @@ alurapic/client/app/**/*.js
 alurapic/client/app/**/*.map
 alurapic/client/npm-debug.log
 alurapic/server/npm-debug.log
+
+*./vscode
