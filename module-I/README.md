@@ -112,7 +112,7 @@ import { MyComponent } from './app.mycomponent'; // dará erro se nao utilizar e
 * A vantagem do loader é que não precisamos importar cada módulo em nossa página, simplesmente indicamos qual é o primeiro módulo a ser carregado que todas as suas dependências serão carregadas.
 * O _System.js_ lê o *main.js* para saber quais e como os modulos devem ser carregados pelo navegador.
     * Evitar importar n arquivos.js
-    * O proprio loader resolve as dependencias e baixa o script pra você
+    * O proprio loader resolve as dependencias e baixa o script pra você.
 
 ## Angular Cli
 
@@ -159,6 +159,7 @@ class Pessoa {
 
 * No JS usa-se Ajax para requisições.
 * O Angular possui um serviço já responsável por realizar esta tarefa.
+* O HTTP trabalha somente com texto, portanto tem que converter de Object para texto/json.
 * Angular 1 usa muito *Promises*. Angular 2 preferiu utilizar *RxJS* para trabalhar com Observable stream.
 
 ```javascript
@@ -220,6 +221,11 @@ export class AppComponent {
 }
 ```
 
+### post()
+* Comportamento semelhante ao get, para obter dados.
+* O post é muito usado quando queremos incluir dados.
+* Exemplo de uso do post para submeter dados de um cadastro, no método _cadastrar_ da class _CadastroComponent_ do _cadastro.component.ts_
+
 * Exemplos de definição de tipos com TypeScript:
 
 ```typescript
@@ -280,3 +286,40 @@ Uma variável local de um template é uma maneira de movermos dados entre elemen
 <!--ou, declarando a variavel como var- -->
 <input class="form-control" var-textoProcurado  placeholder="filtrar pelo título da foto">
 ``` 
+
+## One Way Data Binding
+
+### Do model pra view
+* O dado sempre flui do modelo para a view e não o contrário.
+* Utilizado angular expression *{{ url }}* ou colchetes *[src]="url"* nas tags.
+
+### Da view pro model
+* O Angular também possui um data binding da view pro modelo.
+* Diretiva entre parentesis que indica o tipo de evento e a função que será executada por ele. Ex.:
+
+```html
+<!-- O $event é para evitar o recarregamento da pagina ao dar o submit -->
+<!-- Dentro da class, recebe "event" como parâmetro e seta event.preventDefault(); -->
+<form (submit)="cadastrar($event)"></form>
+```
+
+* Passar dado inputado da view pro model:
+
+```html
+<input (input)="foto.titulo = $event.target.value"  [value]="foto.titulo" class="form-control" autocomplete="off">
+```
+
+## ngModel
+
+* () = da view pro modelo
+* [] = do modelo pra view
+* [(ngModel)] = passa da view pro modelo e também do modelo pra view, por isso Two Way Data Binding.
+* O uso de ngModel torna menos verbosa a escrita do Angular.
+* ngModel só estará disponível se utilizar um import específico do Angular
+* É preciso também setar um _name_ pro seu atributo html para que o _ngModel_ funcione.
+
+Ex. de uso:
+
+```html
+<input name="titulo" [(ngModel)]]="foto.titulo" class="form-control" autocomplete="off">
+```
