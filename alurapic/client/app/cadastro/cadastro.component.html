@@ -1,1 +1,43 @@
-<h2 class="text-center">Cadastro de Fotos</h2>
+<div class="container">
+
+    <h2>Cadastrar Foto</h2>
+
+    <!-- Parecido com o onsubmit do js puro -->
+    <!-- Diretiva do angular para chamar o metodo que está no CadastroComponent -->
+    <!-- É um One Way Data Binding da view pro model -->
+    <form class="row" (submit)="cadastrar($event)">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Título</label>
+                <!-- Associacao via one way data binding da view pro model para os objetos que estao na classe CadastroComponent
+                e relacionados ao FotoComponent -->
+                <!-- <input (input)="foto.titulo = $event.target.value" [value]="foto.titulo" class="form-control" autocomplete="off"> -->
+                
+                <!-- Com ngModel -->
+                <input name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>URL</label>
+                <!-- <input (input)="foto.url = $event.target.value" [value]="foto.url" class="form-control" autocomplete="off"> -->
+
+                <!-- Com ngModel -->
+                <input name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <!-- <textarea (input)="foto.descricao = $event.target.value" [value]="foto.descricao" class="form-control" autocomplete="off"></textarea> -->
+               
+                <!-- Com ngModel -->
+                <textarea name="descricao" [(ngModel)]="foto.descricao" class="form-control" autocomplete="off"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Salvar
+            </button>
+
+            <!-- Como foi definido no app.routes, a rota em branco vai redirecionar para ListagemComponent -->
+            <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+            <hr>
+        </div>
+    </form>
+</div>
