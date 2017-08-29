@@ -327,3 +327,4 @@ Ex. de uso:
 ## Component Life Cicle
 
 * O método _ngOnInit()_ é executado logo após a definição de uma Inbound Property _@Input... etc_.
+* Importar no Angular core a interface _OnInit_ e acrescentar o implements na classe para garantir a implementaçao correta do OnInit.
