@@ -17,17 +17,22 @@
                     </span>
 
                     <!-- Criando variavel local do Angular para aplicar o filtro "filterByTitle "-->
-                    <input #textoProcurado type="text" class="form-control" placeholder="filtrar pelo titulo da foto">
+                    <!-- É preciso usar um evento/data binding da view para o seu modelo, 
+                    como por exemplo, um (keyup)='0' suficiente pro angular renderizar novamente a tela. -->
+                    <input #textoProcurado (keyup)='0' type="text" class="form-control" placeholder="filtrar pelo titulo da foto">
+                    <!-- Se fosse utilizar com ngModel -->
+                    <!-- <input [(ngModel)] = "textoProcurado" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="filtrar pelo titulo da foto"> -->
                 </div>
             </form>
         </div>
     </div>
-            
+
     <!-- A tag image virou component -->
     <!-- Angular Expression / One Way data binding -->
-    <!-- fotos: propriedade que está no app.component -->
+    <!-- fotos: propriedade que está no listagem.component -->
 
     <div class="row">
+        <!-- Se fosse usar com o ngModel, retirava o .value do textoProcurado -->
         <painel *ngFor="let foto of fotos | filterByTitle: textoProcurado.value" titulo="{{foto.titulo | uppercase}}" class="col-md-2">
             <foto url="{{foto.url}}" title="{{foto.titulo}}"></foto>
         </painel>

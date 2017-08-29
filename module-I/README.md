@@ -16,6 +16,10 @@
 * Angular gira em torno de componentes.
 * Provider = Provedor de artefatos.
 * Cada view ou página pode ser considerada como component file no Angular.
+* Só eventos assíncronos disparam pro Angular que a sua tela precisa ser renderizada.
+    * É preciso usar um evento/data binding da view para o seu modelo, como por exemplo, um (keyup)='0' suficiente pro angular renderizar novamente a tela.
+* Binding = Associação.
+* Forma de utilizar eventos no Angular, dentro de uma tag: (event)
 
 ## ES6 Tips
 
@@ -265,3 +269,14 @@ foto: Object[] = []; // Mesmo de acima, só que um pouco mais resumido.
 * Funcionam como filtros no Angular. Ex.: {{foto.titulo *| uppercase* }} transforma o valor para caixa-alta.
 * É possível criar filtros customizados.
     * Por convenção, criar o arquivo no padrão: _myfile.pipes.ts_
+* Para implementar a classe do novo pipe, é obrigatório o método *transform* na classe e importar o PipeTransform (Interface/Contrato) no Decorator.
+
+### Variável local de template
+
+Uma variável local de um template é uma maneira de movermos dados entre elementos. Pode ser criada com duas sintaxes.Ex.:
+
+```html
+<input class="form-control" #textoProcurado  placeholder="filtrar pelo título da foto">
+<!--ou, declarando a variavel como var- -->
+<input class="form-control" var-textoProcurado  placeholder="filtrar pelo título da foto">
+``` 

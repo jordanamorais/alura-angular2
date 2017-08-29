@@ -1,6 +1,6 @@
-import { FilterByTitle } from './fotos.pipes';
 import { NgModule } from '@angular/core';
 import { FotoComponent } from './foto.component'
+import { FilterByTitle } from './fotos.pipes';
 
 // Nao precisa importar o Browser porque já esta importado no Module Principal (App Module)
 @NgModule({

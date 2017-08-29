@@ -2,6 +2,7 @@
 //---
 
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Testar ngModel
 // Indica que a aplicacao Angular vai rodar no Navegador
 import { BrowserModule } from '@angular/platform-browser'; // obrigatorio
 import { AppComponent } from './app.component'; // dará erro se nao utilizar export antes da class AppComponent
@@ -23,6 +24,7 @@ import 'rxjs/add/operator/map';
         BrowserModule,
         FotoModule,
         HttpModule,
+        FormsModule, // testar ngModel
         PainelModule,
         routing // routes module
     ],

@@ -10,6 +10,7 @@ import { Http } from '@angular/http'; // Para ter acesso a requisições de serv
 export class ListagemComponent {
 
     fotos: Object[] = []; // inicializando array de fotos vazias.
+    //textoProcurado: string = ''; // usar o ngModel.
     
     // O Angular vai buscar o http pegando quem ele depende. Para isso precisa usar @Inject (um decorator a ser importado)
     // Pegue uma instancia do Http e passe como parametro para mim no construtor
