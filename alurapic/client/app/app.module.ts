@@ -2,7 +2,6 @@
 //---
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Testar ngModel
 // Indica que a aplicacao Angular vai rodar no Navegador
 import { BrowserModule } from '@angular/platform-browser'; // obrigatorio
 import { AppComponent } from './app.component'; // dará erro se nao utilizar export antes da class AppComponent
@@ -12,6 +11,7 @@ import { PainelModule } from './painel/painel.module';
 import { CadastroComponent } from './cadastro/cadastro.component'; // Será uma nova página
 import { ListagemComponent } from './listagem/listagem.component'; // Será uma nova página
 import { routing } from './app.routes';
+import { FormsModule } from '@angular/forms'; // para utilizar o ngModel
 
 // Carregar o o module .map do rxjs para ficar disponível pra uso.
 import 'rxjs/add/operator/map';
@@ -26,7 +26,8 @@ import 'rxjs/add/operator/map';
         HttpModule,
         FormsModule, // testar ngModel
         PainelModule,
-        routing // routes module
+        routing, // routes module
+        FormsModule
     ],
     
     // Declarar quais ou outros componentes ou recursos que ele tem
