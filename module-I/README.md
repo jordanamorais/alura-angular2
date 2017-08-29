@@ -323,3 +323,7 @@ Ex. de uso:
 ```html
 <input name="titulo" [(ngModel)]]="foto.titulo" class="form-control" autocomplete="off">
 ```
+
+## Component Life Cicle
+
+* O método _ngOnInit()_ é executado logo após a definição de uma Inbound Property _@Input... etc_.
