@@ -311,9 +311,9 @@ Uma variável local de um template é uma maneira de movermos dados entre elemen
 
 ## ngModel
 
-* () = da view pro modelo
-* [] = do modelo pra view
-* [(ngModel)] = passa da view pro modelo e também do modelo pra view, por isso Two Way Data Binding.
+* () = da view pro modelo. Event binding.
+* [] = do modelo pra view. Data binding.
+* [(ngModel)] = passa da view pro modelo e também do modelo pra view, por isso Two Way Data Binding (combinando dois tipos de binding, o de evento e o de dados).
 * O uso de ngModel torna menos verbosa a escrita do Angular.
 * ngModel só estará disponível se utilizar um import específico do Angular
 * É preciso também setar um _name_ pro seu atributo html para que o _ngModel_ funcione.
