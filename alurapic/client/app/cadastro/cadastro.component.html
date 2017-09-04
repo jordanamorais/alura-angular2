@@ -5,7 +5,12 @@
     <!-- Parecido com o onsubmit do js puro -->
     <!-- Diretiva do angular para chamar o metodo que está no CadastroComponent -->
     <!-- É um One Way Data Binding da view pro model -->
-    <form class="row" (submit)="cadastrar($event)">
+
+    <!-- Validation - template oriented -->
+    <!-- <form #meuForm="ngForm" class="row" (submit)="cadastrar($event)"> -->
+
+    <!-- Validation - model oriented -->
+    <form [formGroup]="meuForm" class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
@@ -13,25 +18,55 @@
                 e relacionados ao FotoComponent -->
                 <!-- <input (input)="foto.titulo = $event.target.value" [value]="foto.titulo" class="form-control" autocomplete="off"> -->
                 
+                <!-- #titlo - variavel de template local -->
                 <!-- Com ngModel -->
-                <input name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off">
+                <!-- Validation - template oriented -->
+                <!-- <input required #titulo="ngModel" name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off"> -->
+                
+                <!-- Validation - model oriented -->
+                <input formControlName="titulo" name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off">
+                
+                <span *ngIf="meuForm.controls.titulo.invalid" class="form-control alert-danger">
+                    Titulo Obrigatório
+                </span>
             </div>
             <div class="form-group">
                 <label>URL</label>
                 <!-- <input (input)="foto.url = $event.target.value" [value]="foto.url" class="form-control" autocomplete="off"> -->
 
                 <!-- Com ngModel -->
-                <input name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off">
+                <!-- Validation - template oriented -->
+                <!-- <input required #url="ngModel" name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off"> -->
+                
+                <!-- Validation - model oriented -->
+                <input formControlName="url" name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off">
+                
+                <!-- <span *ngIf="url.invalid" class="form-control alert-danger">
+                    URL Obrigatória
+                </span> -->
+
+                <span *ngIf="meuForm.controls.url.invalid" class="form-control alert-danger">
+                    URL Obrigatória
+                </span>
             </div>
             <div class="form-group">
                 <label>Descrição</label>
                 <!-- <textarea (input)="foto.descricao = $event.target.value" [value]="foto.descricao" class="form-control" autocomplete="off"></textarea> -->
                
                 <!-- Com ngModel -->
-                <textarea name="descricao" [(ngModel)]="foto.descricao" class="form-control" autocomplete="off"></textarea>
+                <!-- Validation - model oriented -->
+                <!-- Não terá nenhuma validação sobre este campo, mas é preciso passar no Json de config da validacao, com [] -->
+                <textarea name="descricao" formControlname="descricao" [(ngModel)]="foto.descricao" class="form-control" autocomplete="off"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">
+            <!-- Validation - Template Oriented -->
+            <!-- [disabled] - do modelo pra view -->
+            <!-- <button type="submit" class="btn btn-primary" [disabled]="meuForm.form.invalid">
+                Salvar
+            </button> -->
+
+            <!-- Validation - Model Oriented -->
+            <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
                 Salvar
             </button>
 

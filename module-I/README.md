@@ -328,3 +328,32 @@ Ex. de uso:
 
 * O método _ngOnInit()_ é executado logo após a definição de uma Inbound Property _@Input... etc_.
 * Importar no Angular core a interface _OnInit_ e acrescentar o implements na classe para garantir a implementaçao correta do OnInit.
+
+## Validation
+
+### Template Oriented
+
+* O Angular tem o próprio sistema de validação.
+* Declarar variável de template no form como form do Angular: <form #meuForm="ngForm"...
+* Diretiva *ngIf="titulo.invalid" numa tag.
+* Setar button como disabled, caso o form seja invalido. Ex.:
+
+```html
+<button type="submit" class="btn btn-primary" [disabled]="meuForm.form.invalid">
+    Salvar
+</button>
+```
+
+### Model Oriented
+
+* No _app.module.ts_, juntamente com o FormsModule, importar o *ReactiveFormsModule*.
+* Importar também no  imports: do @NgModule.
+* Importar o _FormGroup_, do _@angular/forms_ no seu component.
+* No _<form>_ usa a diretiva *[formGroup]="meuForm"*.
+    * Pra definir um formGroup, é preciso importar o _FormBuilder_ junto com o import do FormGroup no component, para construir formulários.
+* No constructor do component, criar uma injeção de dependência do FormBuilder para receber o JSON de configuração.
+    * Ex.: Ver constructor do arquivo _cadastro.component.ts_.
+* Utilizar o *formControlName=""* para associar o campo que deve ser validado dentro do Form.
+* Importar o *Validators*, onde importa o _FormGroup_ para conseguir efetuar as validações predefinidas.
+* Dentro das configurações do JSON, do FormBuilder, no [], passa os settings do Validators.
+* Nas tag das mensagens de campo obrigatório que devem ser exibidas, passar o **ngIf* controlando o campo se ele for inváido, por exemplo: _*ngIf="meuForm.controls.titulo.invalid"_.

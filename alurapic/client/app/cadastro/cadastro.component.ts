@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FotoComponent } from '../foto/foto.component';
 import { Http, Headers } from '@angular/http'; // Para ter acesso a requisições de serviço e o Headers para o ultimo param do post
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // Para validaçoes via model
 
 @Component({
     moduleId: module.id,
@@ -15,8 +16,10 @@ export class CadastroComponent {
     // Faz com que eu enxergue os atributos disponíveis de FotoComponent.
     foto: FotoComponent = new FotoComponent();
     http: Http; // guardar para poder utilizar o http no método cadastrar
+    meuForm: FormGroup; // validation via model. No <form> usa a diretiva [formGroup]="meuForm"
 
-    constructor(http: Http) {
+    // injeção de dependencia tambem do formBuilder do angular
+    constructor(http: Http, fb: FormBuilder) {
 
         // testando inicialização
         //this.foto.titulo = 'A';
@@ -24,6 +27,14 @@ export class CadastroComponent {
         //this.foto.descricao = 'C';
 
         this.http = http; // definido acima e que será reusado.
+
+        // Criar um grupo de validação que recebe um jSon.
+        this.meuForm = fb.group({
+
+            titulo: ['', Validators.required], // quero validar o titulo e usar alguma regra de validação
+            url: ['', Validators.required], // Dentro de um colchetes porque pode ter mais de uma validação por campo
+            descricao: [''], // Não terá nenhuma validação sobre este campo, mas é preciso passar no Json de config da validacao, com []
+        });
     }
     // Os dados serao enviados via ajax com o Angular
     cadastrar(event) {

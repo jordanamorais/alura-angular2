@@ -11,7 +11,7 @@ import { PainelModule } from './painel/painel.module';
 import { CadastroComponent } from './cadastro/cadastro.component'; // Será uma nova página
 import { ListagemComponent } from './listagem/listagem.component'; // Será uma nova página
 import { routing } from './app.routes';
-import { FormsModule } from '@angular/forms'; // para utilizar o ngModel
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // para utilizar o ngModel
 
 // Carregar o o module .map do rxjs para ficar disponível pra uso.
 import 'rxjs/add/operator/map';
@@ -27,7 +27,8 @@ import 'rxjs/add/operator/map';
         FormsModule, // testar ngModel
         PainelModule,
         routing, // routes module
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     
     // Declarar quais ou outros componentes ou recursos que ele tem
