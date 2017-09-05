@@ -27,7 +27,7 @@ import 'rxjs/add/operator/map';
         FormsModule, // testar ngModel
         PainelModule,
         routing, // routes module
-        FormsModule,
+        FormsModule, 
         ReactiveFormsModule
     ],
     
