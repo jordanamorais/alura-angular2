@@ -2,6 +2,8 @@
 
     <h2>Cadastrar Foto</h2>
 
+    <h3>{{foto.titulo}}</h3>
+
     <!-- Parecido com o onsubmit do js puro -->
     <!-- Diretiva do angular para chamar o metodo que está no CadastroComponent -->
     <!-- É um One Way Data Binding da view pro model -->
@@ -10,7 +12,7 @@
     <!-- <form #meuForm="ngForm" class="row" (submit)="cadastrar($event)"> -->
 
     <!-- Validation - model oriented -->
-    <form [formGroup]="meuForm" class="row" (submit)="cadastrar($event)">
+    <form [formGroup]="meuForm"  class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
@@ -24,11 +26,19 @@
                 <!-- <input required #titulo="ngModel" name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off"> -->
                 
                 <!-- Validation - model oriented -->
-                <input formControlName="titulo" name="titulo" [(ngModel)]="foto.titulo" class="form-control" autocomplete="off">
-                
-                <span *ngIf="meuForm.controls.titulo.invalid" class="form-control alert-danger">
-                    Titulo Obrigatório
-                </span>
+                <input [(ngModel)]="foto.titulo" formControlName="titulo" class="form-control" autocomplete="off">
+
+                <div *ngIf="meuForm.controls.titulo.invalid">
+                    <!-- Se a validacao foi verdadeira ou falsa -->
+                    <span *ngIf="meuForm.controls.titulo.errors.required" class="form-control alert-danger">
+                        Titulo Obrigatório
+                    </span>
+                    <!-- Exibido apenas se o criterio do minlength for falso -->
+                    <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger">
+                        O título Deve ter no mínimo 4 caracteres.
+                    </span>
+                </div>
+
             </div>
             <div class="form-group">
                 <label>URL</label>
@@ -39,8 +49,8 @@
                 <!-- <input required #url="ngModel" name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off"> -->
                 
                 <!-- Validation - model oriented -->
-                <input formControlName="url" name="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off">
-                
+                <input [(ngModel)]="foto.url" formControlName="url" class="form-control" autocomplete="off">
+
                 <!-- <span *ngIf="url.invalid" class="form-control alert-danger">
                     URL Obrigatória
                 </span> -->
@@ -56,7 +66,7 @@
                 <!-- Com ngModel -->
                 <!-- Validation - model oriented -->
                 <!-- Não terá nenhuma validação sobre este campo, mas é preciso passar no Json de config da validacao, com [] -->
-                <textarea name="descricao" formControlname="descricao" [(ngModel)]="foto.descricao" class="form-control" autocomplete="off"></textarea>
+                <textarea [(ngModel)]="foto.descricao" formControlName="descricao" class="form-control" autocomplete="off"></textarea>
             </div>
 
             <!-- Validation - Template Oriented -->
@@ -73,6 +83,11 @@
             <!-- Como foi definido no app.routes, a rota em branco vai redirecionar para ListagemComponent -->
             <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
             <hr>
+        </div>
+        <div class="col-md-6">
+            <!-- One way data binding - do modelo atualize minha view -->
+            <!-- tambem poderia usar angular expression com {{foto.url}}, por ex -->
+            <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
         </div>
     </form>
 </div>

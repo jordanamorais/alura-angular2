@@ -31,9 +31,9 @@ export class CadastroComponent {
         // Criar um grupo de validação que recebe um jSon.
         this.meuForm = fb.group({
 
-            titulo: ['', Validators.required], // quero validar o titulo e usar alguma regra de validação
+            titulo: ['', Validators.compose([ Validators.required, Validators.minLength(4)])],
             url: ['', Validators.required], // Dentro de um colchetes porque pode ter mais de uma validação por campo
-            descricao: [''], // Não terá nenhuma validação sobre este campo, mas é preciso passar no Json de config da validacao, com []
+            descricao: [''] // Não terá nenhuma validação sobre este campo, mas é preciso passar no Json de config da validacao, com []
         });
     }
     // Os dados serao enviados via ajax com o Angular
