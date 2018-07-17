@@ -5,11 +5,11 @@
 
 > Notes
 
-* [Angular 2 Notes](https://github.com/jordanamorais/learning-angular/tree/master/notes/angular-2)
+* [Angular 2 Notes](https://github.com/jordanamorais/learning-angular/tree/master/angular-2)
 
 > Project
 
-* [Alura Pic](https://github.com/jordanamorais/learning-angular/tree/master/alurapic)
+* [Alura Pic](https://github.com/jordanamorais/learning-angular/tree/master/angular-2/project/alurapic)
 
 ## Angular 6
 
@@ -18,5 +18,6 @@
 * Angular 6 Notes
 
 > Project
+
 * Coming soon.
 
