@@ -1,5 +1,5 @@
 
-# Angular 2 - Part 1 - Useful notes
+# Angular 2 - Notes
 
 * Rompe totalmente com a versão 1 (AngularJS), com mudanças de paradigma.
 * Framework de SPA.
