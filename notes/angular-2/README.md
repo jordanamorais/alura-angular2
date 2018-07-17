@@ -358,7 +358,6 @@ Ex. de uso:
 * Dentro das configurações do JSON, do FormBuilder, no [], passa os settings do Validators.
 * Nas tag das mensagens de campo obrigatório que devem ser exibidas, passar o **ngIf* controlando o campo se ele for inváido, por exemplo: _*ngIf="meuForm.controls.titulo.invalid"_.
 
-
 ### Validators Types
 
 * _Required_ -- quando o campo é requerido
