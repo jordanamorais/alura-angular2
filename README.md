@@ -1,7 +1,9 @@
 
 # Learning Angular
 
-## Angular 2
+A repo to maintain my Angular studies and courses.
+
+## Angular 2.x
 
 > Notes
 
@@ -9,15 +11,15 @@
 
 > Project
 
-* [Alura Pic](https://github.com/jordanamorais/learning-angular/tree/master/angular-2/project/alurapic)
+* [AluraPic](https://github.com/jordanamorais/learning-angular/tree/master/angular-2/project/alurapic)
 
-## Angular 6
+## Angular 6.x
 
 > Notes
 
-* Angular 6 Notes
+* [Angular 6 Notes](https://github.com/jordanamorais/learning-angular/tree/master/angular-6)
 
 > Project
 
-* Coming soon.
+* [AluraPic with Angular CLI](https://github.com/jordanamorais/learning-angular/tree/master/angular-6/project/alurapic).
 
