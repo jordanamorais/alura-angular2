@@ -16,6 +16,8 @@
 * A media que fomos criando nossos componentes, o tempo para desenvolver novos recursos ficará cada vez menor, pois poderemos combinar esses componentes entre si para criar novos funcionalidades.
 * A versão 6 do Angular continua a usar Typescript. TypeScript existe apenas em tempo de desenvolvimento, pois antes do nosso código entrar em produção, ela é traduzida para JavaScript puro.
 * Suportará sempre as duas últimas versões vigentes dos navegadores do mercado (ever green browsers).
+* Em Angular, tudo é um componente, que tem a vantagem de guardar um comportamento (o que deve fazer), a apresentação (o CSS), e a markup (estrutura), tudo num único lugar.
+* O Angular 2.x em diante usa o Webpack como bundle module, tudo encapsulado pelo Angular CLI.
 
 ### Sobre as diferentes versões do Angular
 
