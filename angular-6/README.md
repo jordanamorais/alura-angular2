@@ -62,6 +62,12 @@ ng --version
 ng new nomedoprojeto
 ```
 
+> Criar projeto numa pasta existente
+
+```bash
+ng new appName --directory ./
+```
+
 > Dentro da pasta do projeto, startar o projeto
 
 ```bash
