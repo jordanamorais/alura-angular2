@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  description = 'Coelho';
+  url='http://cdn.revistadonna.clicrbs.com.br/wp-content/uploads/sites/9/2017/04/image002-748x496.jpg';
 }

@@ -19,6 +19,12 @@
 * Em Angular, tudo é um componente, que tem a vantagem de guardar um comportamento (o que deve fazer), a apresentação (o CSS), e a markup (estrutura), tudo num único lugar.
 * O Angular 2.x em diante usa o Webpack como bundle module, tudo encapsulado pelo Angular CLI.
 
+> Data Binding no Angular 6.x
+
+```angular
+<img [src]="url" [alt]="description">
+```
+
 ### Sobre as diferentes versões do Angular
 
 * A primeira versão do Angular (1) foi chamada de AngularJS.
@@ -28,6 +34,7 @@
 
 * Facilita configurar o projeto, compilador, build automático, minificar, concatenar, etc. Desse modo, acaba por facilitar o dev focar na criação dos componentes.
 * Ou seja, facilita toda a configuração de Infra Estrutura para que o desenvolvedor ganhe tempo o que de fato interessa.
+* Qualquer atualização na aplicação o browser é recarregado (Como BrowserSync que o cli engloba).
 
 ### Comandos
 
@@ -61,8 +68,14 @@ ng new nomedoprojeto
 ng serve
 ```
 
-> Startar o projeto e abrir automaticamente o browser num servidor local
+> Startar o projeto e abrir automaticamente a aplicação no browser, num servidor local
 
 ```bash
 ng serve --open
 ```
+
+## Nomenclaturas
+
+* {{...}} - Double curly braces. AE / Angular expression.
+* Data Binding - Associação de dados com uma fonte de dados e seu template (view). A ideia do Angular com data-binding é justamente evitar muita manipulação de DOM para coisas simples.
+
